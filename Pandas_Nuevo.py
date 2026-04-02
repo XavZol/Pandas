@@ -1,52 +1,25 @@
 import pandas as pd
+import json as json
+serie = pd.Series([5 , 10 , 15 , 20 , 25])
+print(serie)
 
-# Usar raw string o barras normales para evitar errores de escape en Windows
-df = pd.read_csv(r"C:\Users\javie\OneDrive\Desktop\Precipitaciones.csv")
 
-# Verifica que la carga fue correcta
-serie = df["region"]
-print(serie.head())
+# Los convertimos a booleanos
+filtro = serie > 15
+serie_filtrada = serie[filtro]
+print(filtro)
 
-# print(df.head())
+# Indexamos los resultados ya convertidos
+print(serie_filtrada)
 
-datos = [10,55,60,80]
-serie2 = pd.Series(datos)
-serie2 = serie2 + 100
+serie2 = pd.Series(["banana", "pera", "melon", "manzana"])
 print(serie2)
 
-indices = ["a", "b", "c", "d"]
-serie2 = pd.Series(datos, indices)
-print(serie2)
 
-print(serie2["b"])
+print(f"{dir(serie2.to_json)}")
 
-paises = ["México", "Argentina", "España", "Estados Unidos" ]
-capitales = ["Distrito Federal", "Buenos Aires", "Madrid", "Washington D.C"]
-Mezlca = ["México Distrito Federal"]
-serie3 = pd.Series(capitales,paises)
-print(f"{serie3} ")
+type(serie2)
 
-data = {"Id_producto": [1001, 1002, 1003, 1003],
-        "Cantidad_vendida": [30, None, 25, 25],
-        "Precio": [20.5, 15, None, 22.6]}
-
-df = pd.DataFrame(data)
-print(df)
-print(df.info())
-print(df.isnull()) # true o false
-print(df.isnull().sum())
-
-df_eliminados = df.dropna() # traer los valores diferenciados
-print(df_eliminados)
-
-valores = {"Cantidad_vendida" : 0, "Precio": df["Precio"].mean()} #Método mean para el promedio
-df_eliminados2 = df.fillna(valores) #rellenar los valores no válidos
-
-
-# df_eliminados2["Cantidad_vendida"] = df_eliminados2["Cantidad_vendida"].astype("int64")  Otra forma de convertir a enteros
-df_eliminados2["Cantidad_vendida"] = df_eliminados2["Cantidad_vendida"].astype(int) 
-print(df_eliminados2)
-
-# ELIMINAR DIPLICADOS
-df_unicos  = df_eliminados2.drop_duplicates(subset="Id_producto") # Con subset especificamos la columna a checar
-print(df_unicos)
+filtro2 = serie2.str.contains("m")
+print(filtro2)
+print(serie2[filtro2])
