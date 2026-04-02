@@ -1,18 +1,27 @@
 import pandas as pd
 import json as json
 
+df = pd.read_csv(r"C:\Users\javie\OneDrive\Desktop\medallas.csv")
 
-numeros = pd.Series([ 10, 20, 30 , 40, 50])
-print(numeros)
+print(df)
 
-promedio = numeros.mean()
-print(f"El promedio es {promedio}")
+print(df.shape)
+print(df.head())
+print(df.info())
+print(df.describe())
 
-total = numeros.sum()
-print(total)
+df_relleno = df.fillna(0, inplace=True) # Rellena directo el dataFrame y no genera una copia
 
-maximo = numeros.max()
-print(maximo)
+print(df.describe())
 
-minimo = numeros.min()
-print(minimo)
+print(df.isnull().sum())
+
+print(df_relleno)
+
+top_3_oro = df.sort_values('Oro', ascending=False).head(3) # obtener los tres primeros de ORO en orden ASCENDENTE
+print(top_3_oro)
+
+filtro = df['Total'] > 10
+mas_10_medallas = df[filtro]
+mas_10_medallas.sort_values('Total', ascending=False) 
+print(mas_10_medallas)

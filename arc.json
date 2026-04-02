@@ -1,0 +1,103 @@
+     Oro  Plata  Bronce  Total          Pais
+0    NaN    1.0     2.0      3     Argentina
+1    NaN    2.0     2.0      4       Armenia
+2   17.0    7.0    22.0     46     Australia
+3    1.0    1.0     5.0      7       Austria
+4    NaN    3.0     4.0      7    Azerbaijan
+..   ...    ...     ...    ...           ...
+88   NaN    1.0     NaN      1  Turkmenistan
+89   2.0    1.0     1.0      4        Uganda
+90   1.0    6.0    12.0     19       Ukraine
+91   3.0    NaN     2.0      5    Uzbekistan
+92   1.0    3.0     NaN      4     Venezuela
+
+[
+          93 rows x 5 columns
+     ]
+(93,
+     5)
+    Oro  Plata  Bronce  Total        Pais
+0   NaN    1.0     2.0      3   Argentina
+1   NaN    2.0     2.0      4     Armenia
+2  17.0    7.0    22.0     46   Australia
+3   1.0    1.0     5.0      7     Austria
+4   NaN    3.0     4.0      7  Azerbaijan
+<class 'pandas.DataFrame'>
+RangeIndex: 93 entries,
+     0 to 92
+Data columns (total 5 columns):
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   Oro     65 non-null     float64
+ 1   Plata   69 non-null     float64
+ 2   Bronce  76 non-null     float64
+ 3   Total   93 non-null     int64  
+ 4   Pais    93 non-null     str    
+dtypes: float64(3), int64(1), str(1)
+memory usage: 3.8 KB
+None
+             Oro      Plata     Bronce       Total
+count  65.000000  69.000000  76.000000   93.000000
+mean    4.400000   4.768116   4.934211   10.548387
+std     7.633806   7.276362   6.261705   18.897617
+min     1.000000   1.000000   1.000000    1.000000
+25%     1.000000   1.000000   1.000000    2.000000
+50%     2.000000   2.000000   2.000000    4.000000
+75%     3.000000   5.000000   5.250000    8.000000
+max    39.000000  41.000000  33.000000  113.000000
+             Oro      Plata     Bronce       Total
+count  93.000000  93.000000  93.000000   93.000000
+mean    3.075269   3.537634   4.032258   10.548387
+std     6.682613   6.598022   5.969946   18.897617
+min     0.000000   0.000000   0.000000    1.000000
+25%     0.000000   0.000000   1.000000    2.000000
+50%     1.000000   1.000000   2.000000    4.000000
+75%     3.000000   4.000000   4.000000    8.000000
+max    39.000000  41.000000  33.000000  113.000000
+Oro       0
+Plata     0
+Bronce    0
+Total     0
+Pais      0
+dtype: int64
+     Oro  Plata  Bronce  Total          Pais
+0    0.0    1.0     2.0      3     Argentina
+1    0.0    2.0     2.0      4       Armenia
+2   17.0    7.0    22.0     46     Australia
+3    1.0    1.0     5.0      7       Austria
+4    0.0    3.0     4.0      7    Azerbaijan
+..   ...    ...     ...    ...           ...
+88   0.0    1.0     0.0      1  Turkmenistan
+89   2.0    1.0     1.0      4        Uganda
+90   1.0    6.0    12.0     19       Ukraine
+91   3.0    0.0     2.0      5    Uzbekistan
+92   1.0    3.0     0.0      4     Venezuela
+
+[
+          93 rows x 5 columns
+     ]
+     Oro  Plata  Bronce  Total                        Pais
+25  39.0   41.0    33.0    113   Estados Unidos de America
+72  38.0   32.0    18.0     88  Republica Popular de China
+46  27.0   14.0    17.0     58                       Japon
+     Oro  Plata  Bronce  Total                        Pais
+2   17.0    7.0    22.0     46                   Australia
+11   7.0    6.0     8.0     21                      Brazil
+14   7.0    6.0    11.0     24                      Canada
+15   2.0    4.0     6.0     12              Chinese Taipei
+19   7.0    3.0     5.0     15                        Cuba
+20   4.0    4.0     3.0     11              Czech Republic
+21   3.0    4.0     4.0     11                     Denmark
+25  39.0   41.0    33.0    113   Estados Unidos de America
+30   1.0   12.0    11.0     33                      France
+32   1.0   11.0    16.0     37                     Germany
+34  22.0   21.0    22.0     65                Gran Bretana
+46  27.0   14.0    17.0     58                       Japon
+60   1.0   12.0    14.0     36                 Netherlands
+66   4.0    5.0     5.0     14                      Poland
+72  38.0   32.0    18.0     88  Republica Popular de China
+73   2.0   28.0    23.0     71                         ROC
+81   3.0    8.0     6.0     17                       Spain
+83   3.0    4.0     6.0     13                 Switzerland
+87   2.0    2.0     9.0     13                      Turkey
+90   1.0    6.0    12.0     19                     Ukraine
