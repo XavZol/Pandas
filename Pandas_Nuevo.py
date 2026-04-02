@@ -1,25 +1,18 @@
 import pandas as pd
 import json as json
-serie = pd.Series([5 , 10 , 15 , 20 , 25])
-print(serie)
 
 
-# Los convertimos a booleanos
-filtro = serie > 15
-serie_filtrada = serie[filtro]
-print(filtro)
+numeros = pd.Series([ 10, 20, 30 , 40, 50])
+print(numeros)
 
-# Indexamos los resultados ya convertidos
-print(serie_filtrada)
+promedio = numeros.mean()
+print(f"El promedio es {promedio}")
 
-serie2 = pd.Series(["banana", "pera", "melon", "manzana"])
-print(serie2)
+total = numeros.sum()
+print(total)
 
+maximo = numeros.max()
+print(maximo)
 
-print(f"{dir(serie2.to_json)}")
-
-type(serie2)
-
-filtro2 = serie2.str.contains("m")
-print(filtro2)
-print(serie2[filtro2])
+minimo = numeros.min()
+print(minimo)
