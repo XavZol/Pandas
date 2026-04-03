@@ -1,21 +1,51 @@
-   ID  Nombre
-0   1     Ana
-1   2    Luis
-2   3  Carlos
-   ID  Edad
-0   1    25
-1   2    30
-2   4    23
-   ID  Nombre  Edad
-0   1     Ana  25.0
-1   2    Luis  30.0
-2   3  Carlos   NaN
-3   4     NaN  23.0
-   ID Nombre  Edad
-0   1    Ana    25
-1   2   Luis    30
-2   4    NaN    23
-   ID_x  Nombre  ID_y  Edad
-0     1     Ana     1    25
-1     2    Luis     2    30
-2     3  Carlos     4    23
+   Salario  Antigüedad
+1    30000           9
+2    45000          13
+3    38000          15
+      Ciudad Jerarquía
+1     Madrid      Baja
+2  Barcelona      Alta
+4   Valencia     Media
+   Salario  Antigüedad     Ciudad Jerarquía
+1    30000           9     Madrid      Baja
+2    45000          13  Barcelona      Alta
+3    38000          15        NaN       NaN
+   Salario  Antigüedad     Ciudad Jerarquía
+1    30000           9     Madrid      Baja
+2    45000          13  Barcelona      Alta
+   Nombre  Edad
+id             
+1     Ana    25
+2    Beto    30
+3   Carla    35
+                Nombre  Precio NombreCategoria
+ProductoID                                    
+1           Producto 1     100     Categoría 1
+2           Producto 2     150     Categoría 2
+3           Producto 3     200             NaN
+4           Producto 4     250             NaN
+                Nombre  Precio NombreCategoria
+ProductoID                                    
+1           Producto 1     100     Categoría 1
+2           Producto 2     150     Categoría 2
+3           Producto 3     200             NaN
+4           Producto 4     250             NaN
+                 Nombre  Precio NombreCategoria
+CategoriaID                                    
+1            Producto 1     100     Categoría 1
+2            Producto 2     150     Categoría 2
+       Nombre  Precio NombreCategoria
+1  Producto 1     100     Categoría 1
+2  Producto 2     150     Categoría 2
+3  Producto 3     200     Categoría 3
+                 Nombre  Precio NombreCategoria
+CategoriaID                                    
+1            Producto 1     100     Categoría 1
+2            Producto 2     150     Categoría 2
+3            Producto 3     200     Categoría 3
+                Nombre  Precio NombreCategoria
+ProductoID                                    
+1           Producto 1     100     Categoría 1
+2           Producto 2     150     Categoría 2
+3           Producto 3     200     Categoría 3
+4           Producto 4     250             NaN
