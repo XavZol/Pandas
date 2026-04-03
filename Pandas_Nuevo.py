@@ -1,54 +1,50 @@
 import pandas as pd
 import json as json
 
-df1 = pd.DataFrame({'Nombre': ["Juan", "Gabriel", "María"], 'Edad': [23, 25, 30]})
-print(df1)
+fechas = pd.Series(pd.date_range('2024-01-01', periods=5)) #D: Día, M: Mes, Y: Año, h: Hora
+print(fechas)
 
-df2 = pd.DataFrame({'Nombre': ["Carlos", "Ana", "Luis"], 'Edad': [25, 24, 26]})
-print(df2)
+type(fechas[0])
 
-df_concatenando = pd.concat([df1, df2])
-print(df_concatenando)
-
-df_concatenando1 = pd.concat([df1, df2], axis=1) # Modifica el axis a las tablas para unirlas horizontalmente
-print(df_concatenando1)
-
-df_concatenando = pd.concat([df1, df2], ignore_index=True) # Modifica el index para que no se repitan los indices de las tablas
-print(df_concatenando)
+fechas = pd.Series(pd.date_range('2024-01-01', periods=8, freq='ME')) #ME: Mes final, YE: Año final, h: Hora
+print(fechas)
 
 
-df_concatenando = pd.concat([df1, df2], keys=['df1', 'df2']) # Agrega una columna con el nombre de la tabla de origen 
-print(df_concatenando)
+fechas = pd.Series(pd.date_range('2024-01-01', periods=8, freq='h')) #h: Hora, D: Día, M: Mes, Y: Año
+print(fechas)
 
+fechas = pd.Series(pd.date_range('2024-01-01', periods=8, freq='YE')) #YE: Año final, ME: Mes final, h: Hora
+print(fechas)
 
+fechas = pd.Series(pd.date_range('2024-01-01', periods=8, freq='5D' )) #D: Día, M: Mes, Y: Año, h: Hora, 5D: Cada 5 días, 2M: Cada 2 meses, 3Y: Cada 3 años
+print(fechas)
 
-ventas_enero = pd.DataFrame({'Producto': ["Manzanas", "Bananas", "Naranjas"],
-                            'Cantidad': [300, 200, 150]})
+ruta = r'C:\Users\javie\OneDrive\Desktop\Excel_DB\Mercado+de+Valores+España.csv'
+df =pd.read_csv(ruta)
+print(df)
 
-ventas_febrero = pd.DataFrame({'Producto': ["Manzanas", "Bananas", "Naranjas"],
-                                'Cantidad': [350, 210, 170]})
+df['Fecha'][0]
 
-ventas_concatenadas = pd.concat([ventas_enero, ventas_febrero], keys=['Enero', 'Febrero'])
-print(ventas_concatenadas)
+type(df['Fecha'][0])
 
+df['Fecha'] = pd.to_datetime(df['Fecha'], format='%d/%m/%Y')
+print(df)
 
+df['Fecha'][0]
+print(df)
 
-datos_cliente = pd.DataFrame({'Nombre': ["Ana", "Luis", "Marta"], 
-                            'Edad': [34, 45, 28]})
+pd.Timestamp('2024-01-02 00:00:00')
+type(df['Fecha'][0])
 
-compras_cliente = pd.DataFrame({'Producto': ["Libro", "Lápiz", "Cuaderno"],
-                                'Precio': [15.50, 0.50, 2.00]})
+pd.Timestamp('2024-02-15 00:00:00')
+print(df['Fecha'][44])
 
-datos_compras = pd.concat([datos_cliente, compras_cliente], axis=1)
-print(datos_compras)
+pd.Timestamp('2024-02-15 00:00:00')
+print(df['Fecha'][44].year)
 
+pd.Timestamp('2024-02-15 00:00:00')
+print(df['Fecha'][44].month)
 
+df_mas = df['Fecha'] + pd.Timedelta(days=10) # datos temporales en días, horas, minutos, segundos, etc. pd.Timedelta(days=10) suma 10 días a cada fecha en la columna 'Fecha'
+print(df_mas)
 
-tienda_a = pd.DataFrame({'Producto': ["Manzanas", "Bananas"],
-                        'Cantidad': [500, 300]})
-
-tienda_b = pd.DataFrame({'Producto': ["Naranjas", "Peras"], 
-                        'Cantidad': [400, 250]})
-
-tiendas_concatenadas = pd.concat([tienda_a, tienda_b], ignore_index=True)
-print(tiendas_concatenadas)
