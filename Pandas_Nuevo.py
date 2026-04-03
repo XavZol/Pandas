@@ -1,27 +1,30 @@
 import pandas as pd
 import json as json
 
-df = pd.read_csv(r"C:\Users\javie\OneDrive\Desktop\medallas.csv")
+data = {
+    'Nombre': ['Ana', 'Luis', 'Carlos', 'Sara'],
+    'Edad': [25, 30, 52, 48],
+    'Ciudad': ['Madrid', 'Barcelona', 'Valencia', 'Bilbao']
+}
+df = pd.DataFrame(data)
 
 print(df)
 
-print(df.shape)
-print(df.head())
-print(df.info())
-print(df.describe())
+df['Salario'] = [30000, 40000, 80000, 40000]
+df['Salario'] = df['Salario'] + 2000
+print(df)
 
-df_relleno = df.fillna(0, inplace=True) # Rellena directo el dataFrame y no genera una copia
+nombre = df['Nombre']
+print(nombre)
 
-print(df.describe())
+mayores_25 = df[df['Edad'] >25]
+print(mayores_25)
 
-print(df.isnull().sum())
+edades = df['Edad']
+print(edades)
 
-print(df_relleno)
+mayores_25 = df[edades > 40]
+print(mayores_25)
 
-top_3_oro = df.sort_values('Oro', ascending=False).head(3) # obtener los tres primeros de ORO en orden ASCENDENTE
-print(top_3_oro)
-
-filtro = df['Total'] > 10
-mas_10_medallas = df[filtro]
-mas_10_medallas.sort_values('Total', ascending=False) 
-print(mas_10_medallas)
+type(edades)
+type(mayores_25)
