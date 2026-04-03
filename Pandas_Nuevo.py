@@ -1,49 +1,61 @@
 import pandas as pd
 import json as json
 
-
-ruta_excel = r'C:\Users\javie\OneDrive\Desktop\Excel_DB\Compras_desde_ads.xlsx'
-ruta_xml = r'C:\Users\javie\OneDrive\Desktop\Excel_DB\Valores+de+acciones.xml'
-
-df1 = pd.read_excel(ruta_excel)
-df2 = pd.read_xml(ruta_xml)
-
-print(df1)
-print(df2)
-
-df2 = pd.read_xml(ruta_xml)
-print(df2)
-
-numeros = {
-    'romanos': ['I', 'II', 'III', 'IV'],
-    'arabigos': [1, 2, 3, 4], 
-    'texto': ['uno', 'dos', 'tres', 'cuatro']
-}
-
-df = pd.DataFrame(numeros)
+df = pd.DataFrame({
+    'Col1': [100, 200, 300], 
+    'Col2': [400, 500, 600],
+    'Col3': [300, 800, 900]
+}, index=['fila1', 'fila2', 'fila3'])
+# Fila específica y columna específica
+df.loc['fila1', 'Col1']  # Retorna 100
 print(df)
 
-df['Fechas'] = pd.Series(pd.date_range('20240202', periods=4))
+# Múltiples filas y columnas
+df.loc[df.index.isin(['fila1', 'fila3']), ['Col1', 'Col2']]
 print(df)
 
-# df.to_csv(r'C:\Users\javie\OneDrive\Desktop\Excel_DB\Numeros3.csv', index=False)
+# Filas con condición y columnas específicas
+subf = df.loc[df['Col1'] > 150, df.columns.isin(['Col1', 'Col3'])]
+print(subf)
 
-data = {
-    'Fecha': ['2024-03-19', '2024-03-20', '2024-03-21', '2024-03-22', '2024-03-23', '2024-03-24'],
-    'Producto': ['Manzanas', 'Peras', 'Naranjas', 'Plátanos', 'Uvas', 'Melocotones'],
-    'Cantidad': [23, 15, 18, 30, 8, 20],
-    'Precio': [1.2, 1.5, 1.0, 0.8, 2.0, 1.7]
-}
-df_ventas = pd.DataFrame(data)
-print(df_ventas)
+subtabla = df.loc[df['Col1'] > 200]  # Dividir tu tabla en subtablas
+print(subtabla)
 
-data = {
-    'Fecha': ['2024-03-19', '2024-03-20', '2024-03-21', '2024-03-22', '2024-03-23', '2024-03-24'],
-    'Producto': ['Manzanas', 'Peras', 'Naranjas', 'Plátanos', 'Uvas', 'Melocotones'],
-    'Cantidad': [23, 15, 18, 30, 8, 20],
-    'Precio': [1.2, 1.5, 1.0, 0.8, 2.0, 1.7]
-}
-df_ventas = pd.DataFrame(data)
-print(df_ventas)
+booldf = df.loc[[False, True, False]] #Traer solo la fila2 por booleanos
+print(booldf)
 
-# df_ventas.to_csv(r'C:\Users\javie\OneDrive\Desktop\Excel_DB\Ventas2.csv', index=False)
+df3 = df.loc[df['Col1'] > 150]
+print(df3)
+
+col = df.loc[ : , ['Col1', 'Col2']]
+print(col)
+
+# LOC nos permite elegir filas y coolumnas por etiquetas, mientras que ILOC nos permite elegir filas y columnas por posición.
+
+
+elegir = df.iloc[0]
+print(elegir)
+
+elegir = df.iloc[:, [0, 1]]
+print(elegir)   
+
+elegir = df.iloc[1 : 3]
+print(elegir)   
+
+df = pd.DataFrame({
+    'Nombre': ['Ana', 'Luis', 'Carmen'],
+    'Edad': [25, 30, 22],
+    'Ciudad': ['Madrid', 'Barcelona', 'Valencia']
+}, index=['fila1', 'fila2', 'fila3'])
+
+# Seleccionar la fila de Luis
+luis = df.loc['fila2']
+print(luis)
+
+# Seleccionar la columna de Edad
+edad = df['Edad']
+print(edad)
+
+# Seleccionar la edad de Carmen
+edad_carmen = df.loc['fila3', 'Edad']
+print(edad_carmen)
