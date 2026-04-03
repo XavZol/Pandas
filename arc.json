@@ -1,27 +1,78 @@
-   Nombre  Edad     Ciudad
-0     Ana    25     Madrid
-1    Luis    30  Barcelona
-2  Carlos    52   Valencia
-3    Sara    48     Bilbao
-   Nombre  Edad     Ciudad  Salario
-0     Ana    25     Madrid    32000
-1    Luis    30  Barcelona    42000
-2  Carlos    52   Valencia    82000
-3    Sara    48     Bilbao    42000
-0       Ana
-1      Luis
-2    Carlos
-3      Sara
-Name: Nombre, dtype: str
-   Nombre  Edad     Ciudad  Salario
-1    Luis    30  Barcelona    42000
-2  Carlos    52   Valencia    82000
-3    Sara    48     Bilbao    42000
-0    25
-1    30
-2    52
-3    48
-Name: Edad, dtype: int64
-   Nombre  Edad    Ciudad  Salario
-2  Carlos    52  Valencia    82000
-3    Sara    48    Bilbao    42000
+     indice_global  indice_estricto  ... metascore recaudación(M)
+0                0              0.0  ...      82.0          28.34
+1                1              1.0  ...     100.0         134.97
+2                2              1.0  ...     100.0         134.97
+3                3              2.0  ...      84.0         534.86
+4                4              2.0  ...      84.0         534.86
+...            ...              ...  ...       ...            ...
+2527          2527            998.0  ...      87.0           0.00
+2528          2528            998.0  ...      87.0           0.00
+2529          2529            999.0  ...       0.0           0.00
+2530          2530            999.0  ...       0.0           0.00
+2531          2531            999.0  ...       0.0           0.00
+
+[2532 rows x 10 columns]
+     indice_global  indice_estricto  ... metascore recaudación(M)
+0                0              0.0  ...      82.0          28.34
+1                1              1.0  ...     100.0         134.97
+2                2              1.0  ...     100.0         134.97
+3                3              2.0  ...      84.0         534.86
+4                4              2.0  ...      84.0         534.86
+...            ...              ...  ...       ...            ...
+2527          2527            998.0  ...      87.0           0.00
+2528          2528            998.0  ...      87.0           0.00
+2529          2529            999.0  ...       0.0           0.00
+2530          2530            999.0  ...       0.0           0.00
+2531          2531            999.0  ...       0.0           0.00
+
+[2532 rows x 10 columns]
+     indice_global  indice_estricto  ... metascore recaudación(M)
+0                0              0.0  ...      82.0          28.34
+1                1              1.0  ...     100.0         134.97
+2                2              1.0  ...     100.0         134.97
+3                3              2.0  ...      84.0         534.86
+4                4              2.0  ...      84.0         534.86
+...            ...              ...  ...       ...            ...
+2527          2527            998.0  ...      87.0           0.00
+2528          2528            998.0  ...      87.0           0.00
+2529          2529            999.0  ...       0.0           0.00
+2530          2530            999.0  ...       0.0           0.00
+2531          2531            999.0  ...       0.0           0.00
+
+[2532 rows x 10 columns]
+género
+Acción             7.987255
+Animación          7.943902
+Aventura           7.980435
+Biografía          7.971698
+Ciencia Ficción    7.986567
+Comedia            7.909910
+Crimen             7.993500
+Deportes           7.980000
+Drama              7.980444
+Familiar           7.932692
+Fantasía           7.929508
+Film-Noir          7.977273
+Guerra             8.053191
+Historia           7.931818
+Misterio           7.991262
+Musica             7.909677
+Musical            7.943750
+Romance            7.937398
+Terror             7.875758
+Thriller           7.929286
+Western            8.006250
+Name: rating, dtype: float64
+año
+1920.0       0.00
+1921.0      16.35
+1922.0       0.00
+1924.0       2.94
+1925.0      16.50
+           ...   
+2019.0    7092.95
+2020.0     143.10
+2021.0    2739.24
+2022.0    5297.31
+2023.0       0.00
+Name: recaudación(M), Length: 102, dtype: float64

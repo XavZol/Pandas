@@ -1,30 +1,25 @@
 import pandas as pd
 import json as json
 
-data = {
-    'Nombre': ['Ana', 'Luis', 'Carlos', 'Sara'],
-    'Edad': [25, 30, 52, 48],
-    'Ciudad': ['Madrid', 'Barcelona', 'Valencia', 'Bilbao']
-}
-df = pd.DataFrame(data)
+
+ruta = r'C:\Users\javie\OneDrive\Desktop\Top-Películas.csv'
+df = pd.read_csv(ruta)
 
 print(df)
 
-df['Salario'] = [30000, 40000, 80000, 40000]
-df['Salario'] = df['Salario'] + 2000
+df_ordenado = df.sort_values(by='rating', ascending=False)
+df_ordenado.head(10)
 print(df)
 
-nombre = df['Nombre']
-print(nombre)
 
-mayores_25 = df[df['Edad'] >25]
-print(mayores_25)
+df_ordenado = df.sort_values(by=['rating', 'recaudación(M)'], ascending=False)
+df_ordenado.head(10)
+print(df)
 
-edades = df['Edad']
-print(edades)
+df_agrupado = df.groupby('género')['rating'].mean()
+print(df_agrupado)
 
-mayores_25 = df[edades > 40]
-print(mayores_25)
 
-type(edades)
-type(mayores_25)
+df_agrupado = df.groupby('año')['recaudación(M)'].sum()
+df_agrupado.sort_values(ascending=False).head()
+print(df_agrupado)
