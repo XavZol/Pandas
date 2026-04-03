@@ -1,50 +1,49 @@
 import pandas as pd
 import json as json
 
-fechas = pd.Series(pd.date_range('2024-01-01', periods=5)) #D: Día, M: Mes, Y: Año, h: Hora
-print(fechas)
 
-type(fechas[0])
+ruta_excel = r'C:\Users\javie\OneDrive\Desktop\Excel_DB\Compras_desde_ads.xlsx'
+ruta_xml = r'C:\Users\javie\OneDrive\Desktop\Excel_DB\Valores+de+acciones.xml'
 
-fechas = pd.Series(pd.date_range('2024-01-01', periods=8, freq='ME')) #ME: Mes final, YE: Año final, h: Hora
-print(fechas)
+df1 = pd.read_excel(ruta_excel)
+df2 = pd.read_xml(ruta_xml)
 
+print(df1)
+print(df2)
 
-fechas = pd.Series(pd.date_range('2024-01-01', periods=8, freq='h')) #h: Hora, D: Día, M: Mes, Y: Año
-print(fechas)
+df2 = pd.read_xml(ruta_xml)
+print(df2)
 
-fechas = pd.Series(pd.date_range('2024-01-01', periods=8, freq='YE')) #YE: Año final, ME: Mes final, h: Hora
-print(fechas)
+numeros = {
+    'romanos': ['I', 'II', 'III', 'IV'],
+    'arabigos': [1, 2, 3, 4], 
+    'texto': ['uno', 'dos', 'tres', 'cuatro']
+}
 
-fechas = pd.Series(pd.date_range('2024-01-01', periods=8, freq='5D' )) #D: Día, M: Mes, Y: Año, h: Hora, 5D: Cada 5 días, 2M: Cada 2 meses, 3Y: Cada 3 años
-print(fechas)
-
-ruta = r'C:\Users\javie\OneDrive\Desktop\Excel_DB\Mercado+de+Valores+España.csv'
-df =pd.read_csv(ruta)
+df = pd.DataFrame(numeros)
 print(df)
 
-df['Fecha'][0]
-
-type(df['Fecha'][0])
-
-df['Fecha'] = pd.to_datetime(df['Fecha'], format='%d/%m/%Y')
+df['Fechas'] = pd.Series(pd.date_range('20240202', periods=4))
 print(df)
 
-df['Fecha'][0]
-print(df)
+# df.to_csv(r'C:\Users\javie\OneDrive\Desktop\Excel_DB\Numeros3.csv', index=False)
 
-pd.Timestamp('2024-01-02 00:00:00')
-type(df['Fecha'][0])
+data = {
+    'Fecha': ['2024-03-19', '2024-03-20', '2024-03-21', '2024-03-22', '2024-03-23', '2024-03-24'],
+    'Producto': ['Manzanas', 'Peras', 'Naranjas', 'Plátanos', 'Uvas', 'Melocotones'],
+    'Cantidad': [23, 15, 18, 30, 8, 20],
+    'Precio': [1.2, 1.5, 1.0, 0.8, 2.0, 1.7]
+}
+df_ventas = pd.DataFrame(data)
+print(df_ventas)
 
-pd.Timestamp('2024-02-15 00:00:00')
-print(df['Fecha'][44])
+data = {
+    'Fecha': ['2024-03-19', '2024-03-20', '2024-03-21', '2024-03-22', '2024-03-23', '2024-03-24'],
+    'Producto': ['Manzanas', 'Peras', 'Naranjas', 'Plátanos', 'Uvas', 'Melocotones'],
+    'Cantidad': [23, 15, 18, 30, 8, 20],
+    'Precio': [1.2, 1.5, 1.0, 0.8, 2.0, 1.7]
+}
+df_ventas = pd.DataFrame(data)
+print(df_ventas)
 
-pd.Timestamp('2024-02-15 00:00:00')
-print(df['Fecha'][44].year)
-
-pd.Timestamp('2024-02-15 00:00:00')
-print(df['Fecha'][44].month)
-
-df_mas = df['Fecha'] + pd.Timedelta(days=10) # datos temporales en días, horas, minutos, segundos, etc. pd.Timedelta(days=10) suma 10 días a cada fecha en la columna 'Fecha'
-print(df_mas)
-
+# df_ventas.to_csv(r'C:\Users\javie\OneDrive\Desktop\Excel_DB\Ventas2.csv', index=False)
