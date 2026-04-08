@@ -1,61 +1,39 @@
 import pandas as pd
 import json as json
 
-df = pd.DataFrame({
-    'Col1': [100, 200, 300], 
-    'Col2': [400, 500, 600],
-    'Col3': [300, 800, 900]
-}, index=['fila1', 'fila2', 'fila3'])
-# Fila específica y columna específica
-df.loc['fila1', 'Col1']  # Retorna 100
+
+ruta = (r'C:\Users\javie\OneDrive\Desktop\Excel_DB\Datos_Ventas_Tienda.csv')
+df_ventas = pd.read_csv(ruta)
+print(df_ventas)
+
+ruta2 = (r'C:\Users\javie\OneDrive\Desktop\Excel_DB\Datos_Ventas_Tienda2.csv')
+df_ventas2 = pd.read_csv(ruta2)
+print(df_ventas2)
+
+df = pd.concat([df_ventas, df_ventas2], ignore_index=True)
+
+print(df.tail()) #Para ver hasta donde determina el nuevo Data Frame 
+
+df['Fecha'] = pd.to_datetime(df['Fecha'])
 print(df)
+print(df.info())
 
-# Múltiples filas y columnas
-df.loc[df.index.isin(['fila1', 'fila3']), ['Col1', 'Col2']]
-print(df)
+producto_mas_vendido = df.groupby('Producto')['Cantidad'].sum() 
+producto_mas_vendido = producto_mas_vendido.sort_values(ascending=False)
+print(producto_mas_vendido.head(1))
 
-# Filas con condición y columnas específicas
-subf = df.loc[df['Col1'] > 150, df.columns.isin(['Col1', 'Col3'])]
-print(subf)
-
-subtabla = df.loc[df['Col1'] > 200]  # Dividir tu tabla en subtablas
-print(subtabla)
-
-booldf = df.loc[[False, True, False]] #Traer solo la fila2 por booleanos
-print(booldf)
-
-df3 = df.loc[df['Col1'] > 150]
-print(df3)
-
-col = df.loc[ : , ['Col1', 'Col2']]
-print(col)
-
-# LOC nos permite elegir filas y coolumnas por etiquetas, mientras que ILOC nos permite elegir filas y columnas por posición.
+meses = [] # Lista vacía para almacenar los meses extraídos de la columna 'Fecha'
+for f in df['Fecha']: # Iteramos sobre cada fecha en la columna 'Fecha' del DataFrame
+    meses.append(f.month) # Agregamos el mes extraído a la lista 'meses'
+df['Meses'] = meses  # Agregamos la lista de meses como una nueva columna en el DataFrame
+print(df) # Imprimimos el DataFrame para verificar que la nueva columna 'Meses' se ha agregado correctamente
 
 
-elegir = df.iloc[0]
-print(elegir)
+ventas_por_mes = df.groupby('Meses')['Total Venta'].sum().sort_values(ascending=False) # Agrupamos el DataFrame por la columna 'Meses', sumamos los valores de 'Total Venta' para cada mes y ordenamos los resultados de mayor a menor
+print(ventas_por_mes.head(1)) # Imprimimos el resultado para ver el mes con las ventas totales más altas. El método head(1) se utiliza para mostrar solo la primera fila del resultado, que corresponde al mes con las ventas más altas.
 
-elegir = df.iloc[:, [0, 1]]
-print(elegir)   
 
-elegir = df.iloc[1 : 3]
-print(elegir)   
+ventas_por_categoria = df.groupby('Producto')['Total Venta'].sum() # Agrupamos el DataFrame por la columna 'Producto' y sumamos los valores de 'Total Venta' para cada producto
+print(ventas_por_categoria) # Imprimimos el resultado para ver las ventas totales por categoría de producto
 
-df = pd.DataFrame({
-    'Nombre': ['Ana', 'Luis', 'Carmen'],
-    'Edad': [25, 30, 22],
-    'Ciudad': ['Madrid', 'Barcelona', 'Valencia']
-}, index=['fila1', 'fila2', 'fila3'])
-
-# Seleccionar la fila de Luis
-luis = df.loc['fila2']
-print(luis)
-
-# Seleccionar la columna de Edad
-edad = df['Edad']
-print(edad)
-
-# Seleccionar la edad de Carmen
-edad_carmen = df.loc['fila3', 'Edad']
-print(edad_carmen)
+df.to_csv(r'C:\Users\javie\OneDrive\Desktop\Excel_DB\Datos_Ventas_Tienda_Completo.csv', index=False) # Guardamos el DataFrame completo en un nuevo archivo CSV sin incluir el índice
